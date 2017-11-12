@@ -22,7 +22,6 @@ namespace DSC_to_DSK
             soCanh = int.Parse(chuoi[1]);
             xp = int.Parse(chuoi[2]);
             kt = int.Parse(chuoi[3]);
-            int dem = 1;
             bool[] kiemtra = new bool[n];
             dsk = new LinkedList<Tuple<int, int>>[n];
             for (int i = 0; i < soCanh; i++)
@@ -31,23 +30,19 @@ namespace DSC_to_DSK
                 int d = int.Parse(s[0]) - 1;
                 int c = int.Parse(s[1]) - 1;
                 int ts = int.Parse(s[2]);
-                if (dem != d + 1)
-                    dem = d + 1;
-                if(dem == d + 1)
+
+                if(kiemtra[d] == false)
                 {
-                    if(kiemtra[d] == false)
-                    {
-                        dsk[d] = new LinkedList<Tuple<int, int>>();
-                        kiemtra[d] = true;
-                    }
-                    dsk[d].AddLast(new Tuple<int, int>(c + 1, ts));
-                    if(kiemtra[c] == false)
-                    {
-                        dsk[c] = new LinkedList<Tuple<int, int>>();
-                        kiemtra[c] = true;
-                    }
-                    dsk[c].AddLast(new Tuple<int, int>(d + 1, ts));
+                    dsk[d] = new LinkedList<Tuple<int, int>>();
+                    kiemtra[d] = true;
                 }
+                dsk[d].AddLast(new Tuple<int, int>(c + 1, ts));
+                if(kiemtra[c] == false)
+                {
+                    dsk[c] = new LinkedList<Tuple<int, int>>();
+                    kiemtra[c] = true;
+                }
+                dsk[c].AddLast(new Tuple<int, int>(d + 1, ts));
             }
             sr.Close();
         }

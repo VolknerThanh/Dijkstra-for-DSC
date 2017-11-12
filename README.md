@@ -46,37 +46,31 @@ ___
 > bước này bỏ qua giai đoạn trung gian là ma trận kề
 
 ```csharp
-int dem = 1;
 bool[] kiemtra = new bool[n];
 dsk = new LinkedList<Tuple<int, int>>[n];
 for (int i = 0; i < soCanh; i++)
 {
-    string[] s = sr.ReadLine().Trim().Split(' ');
-    int d = int.Parse(s[0]) - 1;
-    int c = int.Parse(s[1]) - 1;
-    int ts = int.Parse(s[2]);
-    if (dem != d + 1)
-        dem = d + 1;
-    if(dem == d + 1)
+	string[] s = sr.ReadLine().Trim().Split(' ');
+	int d = int.Parse(s[0]) - 1;
+	int c = int.Parse(s[1]) - 1;
+	int ts = int.Parse(s[2]);
+
+    if(kiemtra[d] == false)
     {
-        if(kiemtra[d] == false)
-        {
-            dsk[d] = new LinkedList<Tuple<int, int>>();
-            kiemtra[d] = true;
-        }
-        dsk[d].AddLast(new Tuple<int, int>(c + 1, ts));
-        if(kiemtra[c] == false)
-        {
-            dsk[c] = new LinkedList<Tuple<int, int>>();
-            kiemtra[c] = true;
-        }
-        dsk[c].AddLast(new Tuple<int, int>(d + 1, ts));
+        dsk[d] = new LinkedList<Tuple<int, int>>();
+        kiemtra[d] = true;
     }
+    dsk[d].AddLast(new Tuple<int, int>(c + 1, ts));
+    if(kiemtra[c] == false)
+    {
+        dsk[c] = new LinkedList<Tuple<int, int>>();
+        kiemtra[c] = true;
+    }
+    dsk[c].AddLast(new Tuple<int, int>(d + 1, ts));
 }
 
-```
 
-> Biến `dem` dùng để gán vị trí của danh sách : `dsk[d]`
+```
 
 > Mảng `kiemtra` để kiểm tra số đó đã tồn tại chưa, để tránh tái khai báo `dsk[...] = new LinkedList<Tuple<int, int>>()`
 
