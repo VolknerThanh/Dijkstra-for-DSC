@@ -1,0 +1,6 @@
+D:\Programming\Console C#\DSC_to_DSK\DSC_to_DSK\bin\Debug\DSC_to_DSK.exe.config
+D:\Programming\Console C#\DSC_to_DSK\DSC_to_DSK\bin\Debug\DSC_to_DSK.exe
+D:\Programming\Console C#\DSC_to_DSK\DSC_to_DSK\bin\Debug\DSC_to_DSK.pdb
+D:\Programming\Console C#\DSC_to_DSK\DSC_to_DSK\obj\Debug\DSC_to_DSK.exe
+D:\Programming\Console C#\DSC_to_DSK\DSC_to_DSK\obj\Debug\DSC_to_DSK.pdb
+D:\Programming\Console C#\DSC_to_DSK\DSC_to_DSK\obj\Debug\DSC_to_DSK.csprojResolveAssemblyReference.cache
