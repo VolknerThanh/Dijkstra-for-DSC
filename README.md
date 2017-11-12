@@ -35,7 +35,7 @@ for (int i = 0; i < n; i++)
 }
 ```
 
-===
+___
 
 ## Upload lần 2
 
@@ -78,3 +78,36 @@ for (int i = 0; i < soCanh; i++)
 
 > Biến `dem` dùng để gán vị trí của danh sách : `dsk[d]`
 
+> Mảng `kiemtra` để kiểm tra số đó đã tồn tại chưa, để tránh tái khai báo `dsk[...] = new LinkedList<Tuple<int, int>>()`
+
+_**Cách giải này có tác dụng:**_
+
+```
+1 2 3
+1 3 18
+1 4 6
+1 5 9
+1 6 14
+2 3 12
+2 4 2
+3 4 7
+3 7 4
+4 5 3
+4 6 6
+5 6 4
+6 7 2
+```
+
+đỉnh 1 nối với 2, 3, 4, 5, 6
+
+nếu như vậy thì 2, 3, 4, 5, 6 cũng nối với 1
+
+ta thấy rằng đây là danh sách cạnh, mỗi cạnh chỉ xuất hiện 1 lần, nhưng đối với danh sách kề, số cạnh nối với 2 đỉnh bằng 2
+
+tức là đỉnh 1 nối đỉnh 2 cạnh 1-2, ngược lại đỉnh 2 nối đỉnh 1 có cạnh là 1-2 hoặc 2-1.
+
+```csharp
+dsk[d].AddLast(new Tuple<int, int>(c + 1, ts));
+
+dsk[c].AddLast(new Tuple<int, int>(d + 1, ts));
+```
